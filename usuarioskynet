@@ -1,0 +1,12 @@
+#!/bin/bash
+
+chequeo_usuario=$(cat /etc/passwd | grep $1 | cut -d ":" -f 1 | uniq)
+
+if [[ $chequeo_usuario = $1 ]]; then 
+	echo "SI "
+else
+	echo "NO"
+fi
+
+
+

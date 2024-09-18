@@ -1,0 +1,12 @@
+#!/bin/bash
+
+chequeo_usuario=$(who | grep $1 | cut -d " " -f 1 | uniq)
+
+if [[ $chequeo_usuario = $1 ]]; then 
+	echo "SI "
+elif [[ -z $chequeo_usuario ]]; then
+	echo "NO"
+fi
+
+
+#echo "Hola $chequeo_usuario, usted está conectado al sistema! "
