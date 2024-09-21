@@ -1,8 +1,10 @@
 #!/bin/bash
 
-chequeo_usuario=$(cat /etc/passwd | grep $1 | cut -d ":" -f 1 | uniq)
+chequeo_usuario=$(cat /etc/passwd | grep $1 2>/dev/null | cut -d ":" -f 1 | uniq)
 
-if [[ $chequeo_usuario = $1 ]]; then 
+if [[ $# -eq 0 ]]; then
+	echo "Debe ingresar al menos un nombre de usuario"
+elif [[ $chequeo_usuario = $1 ]]; then 
 	echo "SI "
 else
 	echo "NO"

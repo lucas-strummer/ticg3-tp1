@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chequeo_usuario=$(who | grep $USER | cut -d " " -f 1 | uniq)
+chequeo_usuario=$(who | grep -s $USER  | cut -d " " -f 1 | uniq )
 
 if [ $# -gt 0 ]; then
 	echo "Los parámetros ingresados son: $1, $2, $3 "
